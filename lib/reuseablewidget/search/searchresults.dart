@@ -34,12 +34,12 @@ class _SearchResultsState extends State<SearchResults> {
         itemCount: imageUrls.length,
         itemBuilder: (context, index) {
           return ClipRRect(
-            borderRadius: BorderRadius.circular(0), // Optional rounded corners
+            borderRadius: BorderRadius.circular(0),
+            clipBehavior: Clip.antiAlias, // Optional rounded corners
             child: Image.network(
               imageUrls[index],
               fit: BoxFit.cover,
             ),
-            clipBehavior: Clip.antiAlias,
             // child: FadeInImage.assetNetwork(
             //   placeholder: '',
             //   image: imageUrls[index],

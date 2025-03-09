@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
+          child: SizedBox(
             width: 350,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

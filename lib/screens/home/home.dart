@@ -32,14 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           // user stories section
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10),
             child: Column(
               children: [Stories()],
             ),
           ),
           //   user post section
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10),
             child: HomePosts(),
           )
         ],

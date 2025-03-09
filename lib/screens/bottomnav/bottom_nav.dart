@@ -55,8 +55,8 @@ class _BottomNavigationScreen extends State<BottomNavigationScreen> {
                 label: "Profile"),
           ]),
       body: IndexedStack(
-        children: pages,
         index: currentIndex,
+        children: pages,
       ),
     );
   }
