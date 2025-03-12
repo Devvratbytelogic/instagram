@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:instagram/utils/screen_utils.dart';
+import 'package:shimmer/shimmer.dart';
 
 class SearchResults extends StatefulWidget {
   const SearchResults({super.key});
@@ -19,9 +21,10 @@ class _SearchResultsState extends State<SearchResults> {
     double screenWidth = ScreenUtils.getScreenWidth(context);
 
     // Set columns dynamically based on screen width
-    int crossAxisCount = screenWidth < 600
-        ? 3 // Phones
-        : screenWidth < 900
+    int crossAxisCount =
+        screenWidth < 600
+            ? 3 // Phones
+            : screenWidth < 900
             ? 4 // Tablets
             : 5; // Desktops
     return Expanded(
@@ -36,8 +39,24 @@ class _SearchResultsState extends State<SearchResults> {
           return ClipRRect(
             borderRadius: BorderRadius.circular(0),
             clipBehavior: Clip.antiAlias, // Optional rounded corners
-            child: Image.network(
-              imageUrls[index],
+            child: CachedNetworkImage(
+              imageUrl: imageUrls[index],
+              errorWidget:
+                  (context, url, error) => const Icon(CupertinoIcons.photo),
+              placeholder:
+                  (context, url) => AspectRatio(
+                    aspectRatio: 1, // Maintains a square shape
+                    child: Shimmer.fromColors(
+                      baseColor: CupertinoColors.systemGrey4,
+                      highlightColor: CupertinoColors.systemGrey5,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: CupertinoColors.systemGrey4,
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                      ),
+                    ),
+                  ),
               fit: BoxFit.cover,
             ),
             // child: FadeInImage.assetNetwork(

@@ -17,32 +17,31 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        leading: Icon(CupertinoIcons.camera_fill),
+        leading: const Icon(CupertinoIcons.camera_fill),
         title: Center(
-            child:
-                UiHelper.customImage(imageUrl: 'title-logo.png', width: 120)),
+          child: UiHelper.customImage(imageUrl: 'title-logo.png', width: 120),
+        ),
         centerTitle: true,
         toolbarHeight: 60,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.heart)),
-          IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.chat_bubble))
+          IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.heart)),
+          IconButton(
+              onPressed: () {}, icon: const Icon(CupertinoIcons.chat_bubble))
         ],
       ),
-      body: Column(
-        children: [
-          // user stories section
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [Stories()],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // User Stories Section
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Stories(),
             ),
-          ),
-          //   user post section
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: HomePosts(),
-          )
-        ],
+
+            // User Posts Section (Scrollable)
+            HomePosts()
+          ],
+        ),
       ),
     );
   }

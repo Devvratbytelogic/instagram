@@ -11,7 +11,7 @@ class _StoriesState extends State<Stories> {
   final List<Map<String, String>> storyArr = [
     {
       "img":
-          "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
       "name": "Your Story",
     },
     {
@@ -21,7 +21,7 @@ class _StoriesState extends State<Stories> {
     },
     {
       "img":
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW9xQ78H87lbecbEQ8uwmUQAwZpbUTknLzPA&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW9xQ78H87lbecbEQ8uwmUQAwZpbUTknLzPA&",
       "name": "StarlightGazer",
     },
     {
@@ -73,7 +73,7 @@ class _StoriesState extends State<Stories> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: 100,
       child: ListView.builder(
         itemCount: storyArr.length,
         scrollDirection: Axis.horizontal,
@@ -99,7 +99,7 @@ class _StoriesState extends State<Stories> {
                     ),
                   ),
                   child: CircleAvatar(
-                    radius: 40,
+                    radius: 35,
                     backgroundImage: NetworkImage(storyArr[index]["img"] ??
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5AwV9M46_bvY-C_j-7Lvx85ucE_Cun4AdJTBJdVy5NeO0Oh0wcsE0-3QHnEacjLmssHY&usqp=CAU"),
                   ),
